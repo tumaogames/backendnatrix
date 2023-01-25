@@ -1,4 +1,4 @@
-<p class="h1 text-center">Backendnatrixtest</p>
+<p class="h1 text-center">Backendnatrixte</p>
 <div class="row">
     <div class="col-2 bg-dark nopadding text-white">
     	<a href="<?php echo base_url()?>pages/view"><p class="h5 m-3">Users</p></a>
