@@ -27,13 +27,17 @@ class Users_model extends CI_Model{
 	}
 
 
-
-
-	public function register_user($data)
+	public function get_contact_number($username, $password)
 	{
-		$this->db->set($data);
-		$query = $this->db->insert('users');
-		dump($query);
+		$query = $this->db->get_where('users', array('username' => $username, 'password' => $password));
+		 if($query->num_rows() == 1)
+		 {
+		 	return $query->result()[0]->contact_number;
+		 } else {
+		 	return FALSE;
+		 }
+		//return $username;
+
 	}
 
 	public function get_users($numofrow, $offset)

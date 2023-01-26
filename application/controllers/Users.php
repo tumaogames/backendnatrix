@@ -64,8 +64,8 @@ class Users extends CI_Controller{
 		} else if($this->Users_model->login_user($username, $password) != FALSE )
 		{
 			$user_id = $this->Users_model->login_user($username, $password);
-
-			$user_data = array('user_id' => $user_id, 'username' => $username, 'login' => TRUE);
+			$user_contact_number = $this->Users_model->get_contact_number($username, $password);
+			$user_data = array('user_id' => $user_id, 'username' => $username, 'login' => TRUE, 'contact_number' => $user_contact_number);
 
 			$this->session->set_userdata('user', $user_data);
 
