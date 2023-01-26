@@ -54,4 +54,9 @@ class Pages extends CI_Controller{
 		$this->load->view('pages/register_view');
 		$this->load->view('templates/footer');
 	}
+
+	public function ulogin()
+	{
+		echo 'hello';
+	}
 }

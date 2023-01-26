@@ -41,16 +41,42 @@ class Users extends CI_Controller{
 
 			redirect('home/view/login_view');
 		}
-
-
 	}
 	
-	public function logo()
+	public function unityLogin()
 	{
-	    echo 'sadas';
-		$username = $this->input->post('username');
-		var_dump($username);
-        die();
+	    $username = $this->input->post('username');
+		$password = $this->input->post('password');
+
+		$this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[3]');
+		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[3]');
+
+
+		if($this->form_validation->run() == FALSE)
+		{
+			$data = array(
+				'errors' => validation_errors()
+			);
+
+			$this->session->set_flashdata($data);
+
+			redirect('pages/ulogin');
+		} else if($this->Users_model->login_user($username, $password) != FALSE )
+		{
+			$user_id = $this->Users_model->login_user($username, $password);
+
+			$user_data = array('user_id' => $user_id, 'username' => $username, 'login' => TRUE);
+
+			$this->session->set_userdata('user', $user_data);
+
+			redirect('pages/ulogin');
+
+		} else
+		{
+			$this->session->set_flashdata('errors', 'Username not found or wrong password.');
+
+			redirect('pages/ulogin');
+		}
 	}
 
 
