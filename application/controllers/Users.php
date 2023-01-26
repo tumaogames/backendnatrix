@@ -69,7 +69,10 @@ class Users extends CI_Controller{
 
 			$this->session->set_userdata('user', $user_data);
 
-			redirect('pages/ulogin');
+			$user_data = $this->session->userdata('user');
+
+			//Returns User's name 
+			echo $user_data['username'];
 
 		} else
 		{
