@@ -72,7 +72,7 @@ class Users extends CI_Controller{
 			$user_data = $this->session->userdata('user');
 
 			//Returns User's name 
-			var_dump($user_data);
+			echo json_encode($user_data);
 
 		} else
 		{
