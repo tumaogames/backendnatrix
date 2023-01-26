@@ -57,6 +57,6 @@ class Pages extends CI_Controller{
 
 	public function ulogin()
 	{
-		echo 'hello';
+		echo 'hello from me';
 	}
 }
