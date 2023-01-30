@@ -76,9 +76,9 @@ class Users extends CI_Controller{
 
 		} else
 		{
-			$this->session->set_flashdata('errors', 'Username not found or wrong password.');
+			//$this->session->set_flashdata('errors', 'Username not found or wrong password.');
 
-			redirect('pages/ulogin');
+			echo json_encode('Username not found or wrong password.');
 		}
 	}
 
