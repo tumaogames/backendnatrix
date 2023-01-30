@@ -58,9 +58,9 @@ class Users extends CI_Controller{
 				'errors' => validation_errors()
 			);
 
-			$this->session->set_flashdata($data);
+			//$this->session->set_flashdata($data);
 
-			redirect('pages/ulogin');
+			echo json_encode($data);
 		} else if($this->Users_model->login_user($username, $password) != FALSE )
 		{
 			$user_id = $this->Users_model->login_user($username, $password);
