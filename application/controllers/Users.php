@@ -113,7 +113,7 @@ class Users extends CI_Controller{
 				'email' => $email,
 				'contact_number' => $contact_number
 			);
-		 	//$this->Users_model->register_user($data);
+		 	$this->Users_model->register_user($data);
 		 	//$this->session->set_flashdata('errors', 'User registered');
 			 echo json_encode($data);
 		 	
