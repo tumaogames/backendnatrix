@@ -90,8 +90,6 @@ class Users extends CI_Controller{
 		$email = $this->input->post('email');
 		$contact_number = $this->input->post('contact_number');
 
-		echo $contact_number;
-
 		/*$this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[3]');
 		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[3]');
 		$this->form_validation->set_rules('password_again', 'Password_again', 'trim|required|min_length[3]');
@@ -108,16 +106,16 @@ class Users extends CI_Controller{
 			echo json_encode($data);
 		} else
 		{*/
-		 	/*$data = array(
+		 	$data = array(
 				'username' => $username,
 				'password' => $password,
 				'password_again' => $password_again,
 				'email' => $email,
 				'contact_number' => $contact_number
 			);
-		 	$this->Users_model->register_user($data);
+		 	//$this->Users_model->register_user($data);
 		 	//$this->session->set_flashdata('errors', 'User registered');
-			 echo json_encode('User registered');*/
+			 echo json_encode($data);
 		 	
 		 	/*if($this->Users_model->login_user($username, $password) != FALSE )
 			{
