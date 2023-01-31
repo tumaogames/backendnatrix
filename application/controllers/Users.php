@@ -49,7 +49,7 @@ class Users extends CI_Controller{
 		$password = $this->input->post('password');
 
 		$this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[3]');
-		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[3]');
+		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[3]|integer');
 
 
 		if($this->form_validation->run() == FALSE)
@@ -138,9 +138,6 @@ class Users extends CI_Controller{
 		$password_again = $this->input->post('password_again');
 		$email = $this->input->post('email');
 		$contact_number = $this->input->post('contact_number');
-
-		echo "reg";
-		die();
 
 		$this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[3]');
 		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[3]');
