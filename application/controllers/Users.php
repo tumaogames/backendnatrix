@@ -139,6 +139,9 @@ class Users extends CI_Controller{
 		$email = $this->input->post('email');
 		$contact_number = $this->input->post('contact_number');
 
+		echo "reg";
+		die();
+
 		$this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[3]');
 		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[3]');
 		$this->form_validation->set_rules('password_again', 'Password_again', 'trim|required|min_length[3]');
