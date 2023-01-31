@@ -82,6 +82,54 @@ class Users extends CI_Controller{
 		}
 	}
 
+	public function unityRegister()
+	{
+		$username = $this->input->post('username');
+		$password = $this->input->post('password');
+		$password_again = $this->input->post('password_again');
+		$email = $this->input->post('email');
+		$contact_number = $this->input->post('contact_number');
+
+		$this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[3]');
+		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[3]');
+		$this->form_validation->set_rules('password_again', 'Password_again', 'trim|required|min_length[3]');
+		$this->form_validation->set_rules('email', 'Email', 'trim|required|min_length[3]');
+		$this->form_validation->set_rules('contact_number', 'Contact_number', 'trim|required|min_length[3]');
+
+		if($this->form_validation->run() == FALSE)
+		{
+			$data = array(
+				'errors' => validation_errors()
+			);
+
+			//$this->session->set_flashdata($data);
+			echo json_encode($data);
+		} else
+		{
+		 	$data = array(
+				'username' => $username,
+				'password' => $password,
+				'password_again' => $password_again,
+				'email' => $email,
+				'contact_number' => $contact_number
+			);
+		 	$this->Users_model->register_user($data);
+		 	//$this->session->set_flashdata('errors', 'User registered');
+			 echo json_encode('User registered');
+		 	
+		 	/*if($this->Users_model->login_user($username, $password) != FALSE )
+			{
+				$user_id = $this->Users_model->login_user($username, $password);
+
+				$user_data = array('user_id' => $user_id, 'username' => $username, 'login' => TRUE);
+
+				$this->session->set_userdata('user', $user_data);
+
+				redirect('pages/view');
+
+		 	}*/
+		}
+	}
 
 	public function register()
 	{
