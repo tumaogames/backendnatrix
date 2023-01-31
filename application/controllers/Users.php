@@ -96,7 +96,7 @@ class Users extends CI_Controller{
 		$this->form_validation->set_rules('email', 'Email', 'trim|required|min_length[3]');
 		$this->form_validation->set_rules('contact_number', 'Contact_number', 'trim|required|min_length[3]|integer');*/
 
-		if($this->form_validation->run() == FALSE)
+		/*if($this->form_validation->run() == FALSE)
 		{
 			$data = array(
 				'errors' => validation_errors()
@@ -105,7 +105,7 @@ class Users extends CI_Controller{
 			//$this->session->set_flashdata($data);
 			echo json_encode($data);
 		} else
-		{
+		{*/
 		 	$data = array(
 				'username' => $username,
 				'password' => $password,
@@ -128,7 +128,7 @@ class Users extends CI_Controller{
 				redirect('pages/view');
 
 		 	}*/
-		}
+		//}
 	}
 
 	public function register()
