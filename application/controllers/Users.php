@@ -90,11 +90,11 @@ class Users extends CI_Controller{
 		$email = $this->input->post('email');
 		$contact_number = $this->input->post('contact_number');
 
-		$this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[3]');
+		/*$this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[3]');
 		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[3]');
 		$this->form_validation->set_rules('password_again', 'Password_again', 'trim|required|min_length[3]');
 		$this->form_validation->set_rules('email', 'Email', 'trim|required|min_length[3]');
-		$this->form_validation->set_rules('contact_number', 'Contact_number', 'trim|required|min_length[3]|integer');
+		$this->form_validation->set_rules('contact_number', 'Contact_number', 'trim|required|min_length[3]|integer');*/
 
 		if($this->form_validation->run() == FALSE)
 		{
